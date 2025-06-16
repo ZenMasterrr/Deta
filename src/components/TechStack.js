@@ -31,7 +31,6 @@ import {
   SiKeras, 
   SiScikitlearn, 
   SiGooglecloud, 
-  SiDjango,
   SiHeroku,
   SiNetlify
 } from 'react-icons/si';
@@ -60,7 +59,6 @@ const TechStack = () => {
           items: [
             { name: 'Node.js', icon: <FaNodeJs className="w-6 h-6 text-[#68A063]" /> },
             { name: 'Express', icon: <SiExpress className="w-6 h-6" /> },
-            { name: 'Django', icon: <SiDjango className="w-6 h-6 text-[#092E20]" /> },
             { name: 'MongoDB', icon: <SiMongodb className="w-6 h-6 text-[#47A248]" /> },
             { name: 'PostgreSQL', icon: <SiPostgresql className="w-6 h-6 text-[#336791]" /> },
             { name: 'GraphQL', icon: <SiGraphql className="w-6 h-6 text-[#E10098]" /> }
@@ -87,7 +85,6 @@ const TechStack = () => {
         { 
           name: 'Frameworks',
           items: [
-            { name: 'TensorFlow', icon: <SiTensorflow className="w-6 h-6 text-[#FF6F00]" /> },
             { name: 'PyTorch', icon: <SiPytorch className="w-6 h-6 text-[#EE4C2C]" /> },
             { name: 'Keras', icon: <SiKeras className="w-6 h-6 text-[#D00000]" /> },
             { name: 'scikit-learn', icon: <SiScikitlearn className="w-6 h-6 text-[#F7931E]" /> }

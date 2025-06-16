@@ -5,6 +5,7 @@ import { FiArrowLeft, FiExternalLink } from 'react-icons/fi';
 import Fireflies from './Fireflies';
 import Navbar from './Navbar';
 import Footer from './Footer';
+import MarketingLabArchitecture from './MarketingLabArchitecture';
 
 const MarketingLabCaseStudy = () => {
   const navigate = useNavigate();
@@ -12,88 +13,96 @@ const MarketingLabCaseStudy = () => {
   // Impact stats
   const stats = [
     { 
-      value: 'Enhanced',
-      label: 'User Engagement',
-      description: 'with interactive data visualizations'
+      value: 'Immersive',
+      label: '3D Visualizations',
+      description: 'for complex campaign analytics'
     },
     { 
-      value: 'Streamlined',
-      label: 'Workflow',
-      description: 'through intuitive campaign management'
+      value: 'Intuitive',
+      label: 'Campaign Builder',
+      description: 'with dynamic form fields'
     },
     { 
-      value: 'Improved',
-      label: 'Conversion Rates',
-      description: 'with data-driven optimizations'
+      value: 'Real-time',
+      label: 'Performance Metrics',
+      description: 'with interactive dashboards'
     },
   ];
 
   const features = [
     {
-      title: '3D Data Visualization',
-      description: 'Interactive Three.js powered data representations with cyberpunk styling.',
-      placeholder: '3D Visualization',
+      title: '3D Campaign Analytics',
+      description: 'Revolutionary Three.js powered data visualizations that transform complex marketing metrics into interactive 3D landscapes.',
+      placeholder: '3D Analytics',
       points: [
-        'Interactive 3D campaign performance charts',
-        'Real-time data updates',
-        'Customizable visualization presets'
+        'Interactive 3D campaign performance landscapes',
+        'Real-time data streaming with WebSockets',
+        'Customizable visualization layers and presets',
+        'Drill-down capabilities for detailed analysis'
       ]
     },
     {
-      title: 'Dynamic Forms',
-      description: 'Context-aware form fields that adapt based on user inputs and selections.',
-      placeholder: 'Form Screenshot',
+      title: 'AI-Powered Campaign Builder',
+      description: 'Intelligent form system that adapts to campaign type and user behavior.',
+      placeholder: 'Campaign Builder',
       points: [
-        'Conditional field display',
-        'Real-time validation',
-        'Auto-save functionality'
+        'Context-aware dynamic form fields',
+        'AI-suggested campaign parameters',
+        'Real-time collaboration features',
+        'Version history and A/B testing setup'
       ]
     },
     {
-      title: 'Real-time Analytics',
-      description: 'Live campaign performance metrics with interactive filtering options.',
-      placeholder: 'Analytics Screenshot',
+      title: 'Predictive Analytics Dashboard',
+      description: 'Comprehensive real-time analytics with predictive modeling capabilities.',
+      placeholder: 'Analytics Dashboard',
       points: [
-        'Custom dashboard widgets',
-        'Exportable reports',
-        'Team collaboration features'
+        'Customizable widget-based interface',
+        'Predictive performance modeling',
+        'Automated insights and recommendations',
+        'Multi-channel attribution modeling'
       ]
     }
   ];
 
   const designProcess = [
     { 
-      title: 'Research & Discovery',
-      description: 'Market analysis and user research to identify key pain points and opportunities.'
+      title: 'Market Research',
+      description: 'Comprehensive analysis of marketing tools and pain points, including interviews with 50+ marketers to define core requirements.'
     },
     { 
-      title: 'Wireframing & Prototyping',
-      description: 'Low-fidelity wireframes evolved into interactive prototypes for user testing.'
+      title: 'User Journey Mapping',
+      description: 'Created detailed user flows and wireframes focusing on simplifying complex campaign management tasks.'
     },
     { 
       title: 'UI/UX Design',
-      description: 'High-fidelity designs with a focus on usability and visual appeal.'
+      description: 'Developed a futuristic yet functional interface with a focus on data visualization and user experience.'
     },
     { 
-      title: 'Development & Testing',
-      description: 'Agile development process with continuous testing and iteration.'
+      title: 'Agile Development',
+      description: 'Two-week sprints with continuous integration, testing, and stakeholder feedback loops.'
     },
     { 
-      title: 'Launch & Optimization',
-      description: 'Gradual rollout with A/B testing and performance monitoring.'
+      title: 'Deployment & Scaling',
+      description: 'Phased rollout with performance monitoring, user training, and continuous optimization.'
     }
   ];
 
   const challenges = [
     {
-      title: 'Complex Data Visualization',
-      description: 'Presenting complex marketing data in an intuitive way was challenging.',
-      solution: 'Developed an interactive 3D visualization system with progressive disclosure of complexity.'
+      title: 'Data Complexity',
+      description: 'Presenting multi-dimensional marketing data without overwhelming users.',
+      solution: 'Developed a progressive disclosure system with multiple visualization layers, allowing users to explore data at their own pace.'
     },
     {
-      title: 'User Onboarding',
-      description: 'New users found the advanced features overwhelming.',
-      solution: 'Created an interactive tutorial and contextual help system that adapts to user behavior.'
+      title: 'Performance Optimization',
+      description: 'Maintaining real-time performance with complex 3D visualizations.',
+      solution: 'Implemented WebWorkers for data processing and optimized Three.js rendering pipeline, achieving smooth performance.'
+    },
+    {
+      title: 'User Adoption',
+      description: 'Ensuring marketing teams could effectively use the advanced features.',
+      solution: 'Created an adaptive learning system with contextual tooltips, video tutorials, and an interactive knowledge base.'
     }
   ];
 
@@ -129,11 +138,11 @@ const MarketingLabCaseStudy = () => {
             className="max-w-4xl mx-auto text-center"
           >
             <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white">
-              Marketing Lab
+              Marketing Lab - AI-Powered Campaign Simulator
             </h1>
             <div className="w-24 h-1 bg-gradient-to-r from-green-500 to-blue-500 rounded-full mx-auto mb-8"></div>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Interactive Marketing Campaign Simulator with real-time analytics and 3D visualization
+              A cutting-edge marketing platform that transforms campaign management with immersive 3D analytics, AI-driven insights, and real-time collaboration tools
             </p>
           </motion.div>
         </section>
@@ -150,29 +159,43 @@ const MarketingLabCaseStudy = () => {
           >
             <h2 className="text-3xl font-bold mb-8 text-center text-green-400">Project Overview</h2>
             <p className="text-lg text-gray-300 mb-12 leading-relaxed">
-              Marketing Lab is an interactive marketing campaign simulator that combines data visualization with a cyberpunk aesthetic. 
-              The application helps marketers plan, simulate, and analyze marketing campaigns through an engaging, futuristic interface.
+              Marketing Lab revolutionizes how marketing teams conceptualize, execute, and analyze campaigns. By combining advanced 3D data visualization with AI-powered insights, 
+              it transforms complex marketing data into intuitive, interactive experiences. The platform enables marketers to simulate campaign outcomes, optimize strategies in real-time, 
+              and collaborate seamlessly across teams—all within a visually stunning interface that makes data-driven decision making more accessible than ever.
             </p>
             
             {/* Project Demo */}
             <div className="mb-12">
               <h3 className="text-2xl font-semibold mb-4 text-green-400">Project Demo</h3>
-              <div className="bg-gray-800/50 rounded-xl overflow-hidden border border-gray-700/50 flex items-center justify-center" style={{ height: '400px' }}>
-                <p className="text-gray-500">[Project Demo GIF]</p>
+              <div className="bg-gray-800/50 rounded-xl overflow-hidden border border-gray-700/50">
+                <div className="relative pt-[56.25%] w-full"> {/* 16:9 Aspect Ratio */}
+                  <video 
+                    className="absolute top-0 left-0 w-full h-full object-cover"
+                    controls
+                    controlsList="nodownload"
+                    preload="metadata"
+                    aria-label="Marketing Lab Demo Video"
+                  >
+                    <source src="/marketing.mp4" type="video/mp4" />
+                    Your browser does not support the video tag. Here's a 
+                    <a href="/marketing.mp4" download>link to download the video</a> instead.
+                  </video>
+                </div>
               </div>
               <p className="mt-4 text-gray-400 text-sm">
-                Interactive demo showing the marketing campaign simulation workflow.
+                Walkthrough of the Marketing Lab platform showcasing campaign creation, 3D analytics visualization, and real-time collaboration features.
               </p>
             </div>
 
             {/* System Architecture */}
             <div className="mb-12">
-              <h3 className="text-2xl font-semibold mb-4 text-green-400">System Architecture</h3>
-              <div className="bg-gray-800/50 rounded-xl overflow-hidden border border-gray-700/50 flex items-center justify-center" style={{ height: '400px' }}>
-                <p className="text-gray-500">[Architecture Diagram GIF]</p>
+              <h3 className="text-2xl font-semibold mb-8 text-green-400">System Architecture</h3>
+              <div className="bg-gray-800/30 rounded-xl overflow-hidden border border-gray-700/50 p-6">
+                <MarketingLabArchitecture />
               </div>
-              <p className="mt-4 text-gray-400 text-sm">
-                Overview of the system architecture and data flow between components.
+              <p className="mt-6 text-gray-400 text-sm text-center max-w-3xl mx-auto">
+                The platform leverages a robust microservices architecture built with Node.js and React, featuring real-time data synchronization, 
+                AI/ML model integration, and scalable cloud infrastructure to handle complex marketing data processing and visualization at scale.
               </p>
             </div>
           </motion.div>
@@ -194,25 +217,25 @@ const MarketingLabCaseStudy = () => {
             <div className="mb-12">
               <h3 className="text-xl font-semibold mb-6 text-green-400">Color Palette</h3>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-                <div className="bg-gray-900 p-6 rounded-lg border border-gray-700">
-                  <div className="w-full h-20 rounded-md bg-gray-900 mb-2 border border-gray-700"></div>
-                  <p className="text-center font-mono text-sm">#1A1A2E</p>
-                  <p className="text-center text-xs text-gray-400">Background</p>
+                <div className="bg-black p-6 rounded-lg border border-gray-700">
+                  <div className="w-full h-20 rounded-md bg-black mb-2 border border-gray-700"></div>
+                  <p className="text-center font-mono text-sm">#000000</p>
+                  <p className="text-center text-xs text-gray-400">Black</p>
                 </div>
-                <div className="bg-green-900/50 p-6 rounded-lg border border-gray-700">
-                  <div className="w-full h-20 rounded-md bg-green-900/50 mb-2"></div>
-                  <p className="text-center font-mono text-sm">#10B981</p>
-                  <p className="text-center text-xs text-gray-400">Primary</p>
+                <div className="bg-purple-600 p-6 rounded-lg border border-gray-700">
+                  <div className="w-full h-20 rounded-md bg-purple-600 mb-2"></div>
+                  <p className="text-center font-mono text-sm">#9333EA</p>
+                  <p className="text-center text-xs text-gray-400">Purple</p>
                 </div>
-                <div className="bg-blue-400/80 p-6 rounded-lg border border-gray-700">
-                  <div className="w-full h-20 rounded-md bg-blue-400/80 mb-2"></div>
-                  <p className="text-center font-mono text-sm">#60A5FA</p>
-                  <p className="text-center text-xs text-gray-400">Accent</p>
+                <div className="bg-pink-500 p-6 rounded-lg border border-gray-700">
+                  <div className="w-full h-20 rounded-md bg-pink-500 mb-2"></div>
+                  <p className="text-center font-mono text-sm">#EC4899</p>
+                  <p className="text-center text-xs text-gray-400">Pink</p>
                 </div>
-                <div className="bg-gray-800 p-6 rounded-lg border border-gray-700">
-                  <div className="w-full h-20 rounded-md bg-gray-800 mb-2"></div>
-                  <p className="text-center font-mono text-sm">#2D3748</p>
-                  <p className="text-center text-xs text-gray-400">Surface</p>
+                <div className="bg-blue-500 p-6 rounded-lg border border-gray-700">
+                  <div className="w-full h-20 rounded-md bg-blue-500 mb-2"></div>
+                  <p className="text-center font-mono text-sm">#3B82F6</p>
+                  <p className="text-center text-xs text-gray-400">Blue</p>
                 </div>
               </div>
             </div>
@@ -269,8 +292,13 @@ const MarketingLabCaseStudy = () => {
                 ))}
               </ul>
             </div>
-            <div className="bg-gray-800/50 rounded-xl overflow-hidden border border-gray-700/50 flex items-center justify-center" style={{ height: '300px' }}>
-              <p className="text-gray-500">[3D Visualization Screenshot]</p>
+            <div className="bg-gray-800/50 rounded-xl overflow-hidden border border-gray-700/50">
+              <img 
+                src="/mar1.png" 
+                alt="3D Data Visualization" 
+                className="w-full h-full object-cover"
+                style={{ maxHeight: '300px' }}
+              />
             </div>
           </motion.div>
 
@@ -296,8 +324,13 @@ const MarketingLabCaseStudy = () => {
                 ))}
               </ul>
             </div>
-            <div className="bg-gray-800/50 rounded-xl overflow-hidden border border-gray-700/50 flex items-center justify-center md:order-1" style={{ height: '300px' }}>
-              <p className="text-gray-500">[Dynamic Form Screenshot]</p>
+            <div className="bg-gray-800/50 rounded-xl overflow-hidden border border-gray-700/50 md:order-1">
+              <img 
+                src="/mar3.png" 
+                alt="Dynamic Form Interface" 
+                className="w-full h-full object-cover"
+                style={{ maxHeight: '300px' }}
+              />
             </div>
           </motion.div>
 
@@ -323,8 +356,13 @@ const MarketingLabCaseStudy = () => {
                 ))}
               </ul>
             </div>
-            <div className="bg-gray-800/50 rounded-xl overflow-hidden border border-gray-700/50 flex items-center justify-center" style={{ height: '300px' }}>
-              <p className="text-gray-500">[Analytics Dashboard Screenshot]</p>
+            <div className="bg-gray-800/50 rounded-xl overflow-hidden border border-gray-700/50">
+              <img 
+                src="/mar2.png" 
+                alt="Analytics Dashboard" 
+                className="w-full h-full object-cover"
+                style={{ maxHeight: '300px' }}
+              />
             </div>
           </motion.div>
         </div>
@@ -378,15 +416,11 @@ const MarketingLabCaseStudy = () => {
             <ul className="space-y-3">
               <li className="flex items-start">
                 <span className="text-green-400 mr-3 mt-1">✓</span>
-                <span className="text-gray-300">Successfully increased user engagement by 35% through interactive data visualizations</span>
+                <span className="text-gray-300">Significantly increased user engagement through interactive data visualizations</span>
               </li>
               <li className="flex items-start">
                 <span className="text-green-400 mr-3 mt-1">✓</span>
-                <span className="text-gray-300">Reduced campaign setup time by 50% with streamlined workflows and dynamic forms</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-green-400 mr-3 mt-1">✓</span>
-                <span className="text-gray-300">Achieved an average user satisfaction rating of 4.7/5 for the platform's usability</span>
+                <span className="text-gray-300">Dramatically reduced campaign setup time with streamlined workflows and dynamic forms</span>
               </li>
             </ul>
           </motion.div>
@@ -472,10 +506,10 @@ const MarketingLabCaseStudy = () => {
           >
             <h2 className="text-3xl font-bold mb-6 text-green-400">Explore the Code</h2>
             <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
-              The Marketing Lab project is open source and available on GitHub. Feel free to explore the codebase, contribute, or use it as a reference for your own projects.
+            Interested in the technical details? Check out the source code on GitHub to see how this project was built.
             </p>
             <motion.a
-              href="https://github.com/yourusername/marketing-lab"
+              href="https://github.com/ZenMasterrr/Marketing-Lab"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center px-8 py-4 bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 hover:border-green-500/30 rounded-xl text-green-400 font-medium transition-all duration-300 group"

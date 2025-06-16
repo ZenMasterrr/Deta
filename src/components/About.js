@@ -3,8 +3,9 @@ import { motion } from 'framer-motion';
 
 const About = () => {
   const skills = [
-    'Machine Learning', 'Deep Learning', 'Python', 'TensorFlow', 'PyTorch',
-    'Computer Vision', 'NLP', 'Data Science', 'MLOps', 'Cloud Computing'
+    'Full-Stack Development', 'React.js', 'Node.js', 'JavaScript/TypeScript', 'Python',
+    'Next.js', 'MongoDB', 'PostgreSQL', 'AI/ML Integration', 'RESTful APIs',
+    'Responsive Design', 'State Management', 'Git & Version Control', 'Cloud Deployment'
   ];
 
   return (
@@ -32,15 +33,18 @@ const About = () => {
             
             <div className="space-y-6 text-gray-200 text-lg leading-relaxed">
               <p>
-                I'm a <span className="text-green-300 font-medium">Machine Learning Engineer</span> specializing in building intelligent systems. I create practical AI solutions that solve real-world problems through innovative thinking and clean, efficient code.
+                I'm a <span className="text-green-300 font-medium">Full-Stack Web Developer</span> with a strong foundation in <span className="text-green-300 font-medium">AI/ML</span>, passionate about building modern, responsive, and intelligent web applications. I combine my expertise in both frontend and backend development with machine learning to create seamless digital experiences.
               </p>
               <p>
-                With expertise in deep learning, computer vision, and NLP, I bridge the gap between research and production. I'm passionate about responsible AI and continuously explore new ways to make technology more intuitive and impactful.
+                With expertise in React, Node.js, and modern JavaScript frameworks, I build scalable and efficient web applications. My AI/ML background allows me to integrate intelligent features that enhance user experiences and solve complex problems.
+              </p>
+              <p>
+                I'm particularly passionate about creating intuitive user interfaces and architecting robust backend systems. Whether it's developing RESTful APIs, implementing responsive designs, or optimizing application performance, I'm dedicated to writing clean, maintainable code that delivers real value to users.
               </p>
             </div>
 
             <div className="mt-12 pt-8 border-t border-gray-700">
-              <h3 className="text-2xl font-semibold text-green-300 mb-6">Expertise</h3>
+              <h3 className="text-2xl font-semibold text-green-300 mb-6">Technical Skills</h3>
               <div className="flex flex-wrap gap-3">
                 {skills.map((skill, index) => (
                   <span 

@@ -5,6 +5,7 @@ import { FiArrowLeft, FiExternalLink } from 'react-icons/fi';
 import Fireflies from './Fireflies';
 import Navbar from './Navbar';
 import Footer from './Footer';
+import TrekArchitecture from './TrekArchitecture';
 
 const TrekCaseStudy = () => {
   const navigate = useNavigate();
@@ -117,7 +118,7 @@ const TrekCaseStudy = () => {
             <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white">
               3D Trekking Adventure
             </h1>
-            <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-green-500 rounded-full mx-auto mb-8"></div>
+            <div className="w-24 h-1 bg-gradient-to-r from-green-500 to-green-400 rounded-full mx-auto mb-8"></div>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
               An immersive 3D experience that lets you explore world destinations and discover their cultural heritage
             </p>
@@ -134,7 +135,7 @@ const TrekCaseStudy = () => {
               transition={{ duration: 0.6 }}
               className="max-w-4xl mx-auto"
             >
-              <h2 className="text-3xl font-bold mb-8 text-center text-blue-400">Project Overview</h2>
+              <h2 className="text-3xl font-bold mb-8 text-center text-green-400">Project Overview</h2>
               <p className="text-lg text-gray-300 mb-12 leading-relaxed">
                 3D Trekking Adventure is a web-based Unity game that transports users to stunning locations around the world. 
                 Explore detailed 3D environments, learn about local culture and history, and discover hidden gems—all from the comfort of your browser.
@@ -142,9 +143,21 @@ const TrekCaseStudy = () => {
               
               {/* Project Demo */}
               <div className="mb-12">
-                <h3 className="text-2xl font-semibold mb-4 text-blue-400">Game Demo</h3>
-                <div className="bg-gray-800/50 rounded-xl overflow-hidden border border-gray-700/50 flex items-center justify-center" style={{ height: '400px' }}>
-                  <p className="text-gray-500">[3D Game Demo]</p>
+                <h3 className="text-2xl font-semibold mb-4 text-green-400">Game Demo</h3>
+                <div className="bg-gray-800/50 rounded-xl overflow-hidden border border-gray-700/50">
+                  <div className="relative pt-[56.25%] w-full"> {/* 16:9 Aspect Ratio */}
+                    <video 
+                      className="absolute top-0 left-0 w-full h-full object-cover"
+                      controls
+                      controlsList="nodownload"
+                      preload="metadata"
+                      aria-label="3D Trekking Adventure Demo Video"
+                    >
+                      <source src="/trek.mp4" type="video/mp4" />
+                      Your browser does not support the video tag. Here's a 
+                      <a href="/trek-demo.mp4" download>link to download the video</a> instead.
+                    </video>
+                  </div>
                 </div>
                 <p className="mt-4 text-gray-400 text-sm">
                   Experience the immersive 3D environments and interactive elements of the trekking adventure.
@@ -153,13 +166,10 @@ const TrekCaseStudy = () => {
 
               {/* System Architecture */}
               <div className="mb-12">
-                <h3 className="text-2xl font-semibold mb-4 text-blue-400">System Architecture</h3>
-                <div className="bg-gray-800/50 rounded-xl overflow-hidden border border-gray-700/50 flex items-center justify-center" style={{ height: '400px' }}>
-                  <p className="text-gray-500">[Architecture Diagram]</p>
+                <h3 className="text-2xl font-semibold mb-4 text-green-400">System Architecture</h3>
+                <div className="bg-gray-800/50 rounded-xl overflow-hidden border border-gray-700/50">
+                  <TrekArchitecture />
                 </div>
-                <p className="mt-4 text-gray-400 text-sm">
-                  Overview of the technical architecture and data flow within the application.
-                </p>
               </div>
             </motion.div>
           </div>
@@ -175,7 +185,7 @@ const TrekCaseStudy = () => {
               transition={{ duration: 0.6 }}
               className="bg-gray-800/50 p-8 rounded-2xl border border-gray-700/50"
             >
-              <h2 className="text-3xl font-bold mb-8 text-center text-blue-400">User Persona</h2>
+              <h2 className="text-3xl font-bold mb-8 text-center text-green-400">User Persona</h2>
               
               <div className="grid md:grid-cols-3 gap-8">
                 <div className="md:col-span-2">
@@ -271,11 +281,11 @@ const TrekCaseStudy = () => {
           </div>
         </section>
 
-        {/* Key Features */}
+{/* Key Features */}
         <section className="py-16 bg-gray-900/50 backdrop-blur-sm">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.h2 
-              className="text-3xl font-bold mb-16 text-center text-blue-400"
+              className="text-3xl font-bold mb-16 text-center text-green-400"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
@@ -294,21 +304,50 @@ const TrekCaseStudy = () => {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
               >
                 <div className={index % 2 === 0 ? '' : 'md:order-2'}>
-                  <h3 className="text-2xl font-bold mb-4 text-blue-400">{index + 1}. {feature.title}</h3>
+                  <h3 className="text-2xl font-bold mb-4 text-green-400">{index + 1}. {feature.title}</h3>
                   <p className="text-gray-300 mb-4">
                     {feature.description}
                   </p>
                   <ul className="space-y-2">
                     {feature.points.map((point, i) => (
                       <li key={i} className="flex items-start">
-                        <span className="text-blue-400 mr-2">•</span>
+                        <span className="text-green-400 mr-2">•</span>
                         <span>{point}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
-                <div className={`bg-gray-800/50 rounded-xl overflow-hidden border border-gray-700/50 flex items-center justify-center ${index % 2 === 0 ? '' : 'md:order-1'}`} style={{ height: '300px' }}>
-                  <p className="text-gray-500">[{feature.placeholder}]</p>
+                <div className={`bg-gray-800/50 rounded-xl overflow-hidden border border-gray-700/50 ${index % 2 === 0 ? '' : 'md:order-1'}`}>
+                  {index < 2 ? (
+                    <img 
+                      src={`/trek${index + 1}.png`}
+                      alt={feature.placeholder}
+                      className="w-full h-full object-cover"
+                      style={{ maxHeight: '300px' }}
+                    />
+                  ) : (
+                    <div className="w-full h-full min-h-[300px] p-6 bg-gray-800/70">
+                      <h4 className="text-lg font-semibold text-green-400 mb-4">Accessibility Features</h4>
+                      <div className="space-y-3">
+                        {[
+                          { icon: '👁️', title: 'Text-to-Speech', desc: 'Full screen reader support' },
+                          { icon: '🎨', title: 'Color Modes', desc: 'High contrast & colorblind friendly' },
+                          { icon: '⌨️', title: 'Keyboard Nav', desc: 'Full keyboard navigation' },
+                          { icon: '📏', title: 'Text Scaling', desc: 'Adjustable text sizes' },
+                          { icon: '🔊', title: 'Audio Cues', desc: 'Helpful sound feedback' },
+                          { icon: '📱', title: 'Touch Support', desc: 'Optimized for touch devices' }
+                        ].map((item, i) => (
+                          <div key={i} className="flex items-start space-x-3 p-2 rounded-lg hover:bg-gray-700/50 transition-colors">
+                            <span className="text-xl mt-0.5">{item.icon}</span>
+                            <div>
+                              <p className="font-medium text-gray-100">{item.title}</p>
+                              <p className="text-sm text-gray-400">{item.desc}</p>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
                 </div>
               </motion.div>
             ))}
@@ -324,20 +363,20 @@ const TrekCaseStudy = () => {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-3xl font-bold mb-12 text-center text-blue-400">Design System</h2>
+              <h2 className="text-3xl font-bold mb-12 text-center text-green-400">Design System</h2>
               
               {/* Color Palette */}
               <div className="mb-12">
-                <h3 className="text-xl font-semibold mb-6 text-blue-400">Color Palette</h3>
+                <h3 className="text-xl font-semibold mb-6 text-green-400">Color Palette</h3>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
                   <div className="bg-gray-900 p-6 rounded-lg border border-gray-700">
                     <div className="w-full h-20 rounded-md bg-gray-900 mb-2 border border-gray-700"></div>
                     <p className="text-center font-mono text-sm">#1A1A2E</p>
                     <p className="text-center text-xs text-gray-400">Background</p>
                   </div>
-                  <div className="bg-blue-900/50 p-6 rounded-lg border border-gray-700">
-                    <div className="w-full h-20 rounded-md bg-blue-900/50 mb-2"></div>
-                    <p className="text-center font-mono text-sm">#1A365D</p>
+                  <div className="bg-green-900/50 p-6 rounded-lg border border-gray-700">
+                    <div className="w-full h-20 rounded-md bg-green-900/50 mb-2"></div>
+                    <p className="text-center font-mono text-sm">#166534</p>
                     <p className="text-center text-xs text-gray-400">Primary</p>
                   </div>
                   <div className="bg-yellow-500/80 p-6 rounded-lg border border-gray-700">
@@ -355,7 +394,7 @@ const TrekCaseStudy = () => {
 
               {/* Typography */}
               <div className="mb-12">
-                <h3 className="text-xl font-semibold mb-6 text-blue-400">Typography</h3>
+                <h3 className="text-xl font-semibold mb-6 text-green-400">Typography</h3>
                 <div className="bg-gray-800 p-6 rounded-xl border border-gray-700">
                   <h1 className="text-4xl font-bold mb-4 font-['Montserrat']">Montserrat - Headings</h1>
                   <h2 className="text-3xl font-bold mb-4 font-['Montserrat']">Modern and clean typeface</h2>
@@ -372,7 +411,7 @@ const TrekCaseStudy = () => {
         <section className="py-16 bg-gray-800/50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.h2 
-              className="text-3xl font-bold mb-12 text-center text-blue-400"
+              className="text-3xl font-bold mb-12 text-center text-green-400"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -392,14 +431,14 @@ const TrekCaseStudy = () => {
               ].map((item, index) => (
                 <motion.div 
                   key={index}
-                  className="bg-gray-700/30 p-6 rounded-xl border border-gray-600/50 hover:border-blue-500/30 transition-colors"
+                  className="bg-gray-700/30 p-6 rounded-xl border border-gray-600/50 hover:border-green-500/30 transition-colors"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: index * 0.1 }}
                   whileHover={{ y: -5 }}
                 >
-                  <h3 className="text-xl font-semibold mb-2 text-blue-400">{item.title}</h3>
+                  <h3 className="text-xl font-semibold mb-2 text-green-400">{item.title}</h3>
                   <p className="text-gray-300">{item.description}</p>
                 </motion.div>
               ))}
@@ -416,7 +455,7 @@ const TrekCaseStudy = () => {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-3xl font-bold mb-12 text-center text-blue-400">Technical Considerations</h2>
+              <h2 className="text-3xl font-bold mb-12 text-center text-green-400">Technical Considerations</h2>
               
               <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
                 <motion.div 
@@ -426,10 +465,10 @@ const TrekCaseStudy = () => {
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: 0.1 }}
                 >
-                  <h3 className="text-2xl font-bold mb-4 text-blue-400">Performance</h3>
+                  <h3 className="text-2xl font-bold mb-4 text-green-400">Performance</h3>
                   <ul className="space-y-3">
                     <li className="flex items-start">
-                      <span className="text-blue-400 mr-2">•</span>
+                      <span className="text-green-400 mr-2">•</span>
                       <span>Level of Detail (LOD) for 3D models to optimize rendering</span>
                     </li>
                     <li className="flex items-start">
@@ -450,10 +489,10 @@ const TrekCaseStudy = () => {
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: 0.2 }}
                 >
-                  <h3 className="text-2xl font-bold mb-4 text-blue-400">Cross-Platform</h3>
+                  <h3 className="text-2xl font-bold mb-4 text-green-400">Cross-Platform</h3>
                   <ul className="space-y-3">
                     <li className="flex items-start">
-                      <span className="text-blue-400 mr-2">•</span>
+                      <span className="text-green-400 mr-2">•</span>
                       <span>Responsive UI scaling for different screen sizes</span>
                     </li>
                     <li className="flex items-start">
@@ -481,7 +520,7 @@ const TrekCaseStudy = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-3xl font-bold mb-6 text-center text-blue-400">Future Enhancements</h2>
+              <h2 className="text-3xl font-bold mb-6 text-center text-green-400">Future Enhancements</h2>
               <div className="grid md:grid-cols-2 gap-6">
                 {[
                   'Multiplayer Mode for shared exploration',
@@ -511,15 +550,15 @@ const TrekCaseStudy = () => {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-3xl font-bold mb-6 text-blue-400">Explore the Code</h2>
+              <h2 className="text-3xl font-bold mb-6 text-green-400">Explore the Code</h2>
               <p className="text-lg text-gray-300 max-w-2xl mx-auto mb-10">
                 Interested in the technical implementation? Check out the source code on GitHub to see how this project was built.
               </p>
               <motion.a
-                href="https://github.com/yourusername/trek"
+                href="https://github.com/ZenMasterrr/3d-Game"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center px-8 py-4 border border-transparent text-base font-medium rounded-full text-white bg-gradient-to-r from-blue-600 to-green-600 hover:from-blue-700 hover:to-green-700 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 transform"
+                className="inline-flex items-center px-8 py-4 border border-transparent text-base font-medium rounded-full text-white bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 transform"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >

@@ -25,11 +25,9 @@ const Hero = () => {
   const heroRef = useRef(null);
 
   const texts = [
-    'Machine Learning Engineer',
-    'Deep Learning Specialist',
-    'AI Researcher',
-    'Data Scientist',
-    'MLOps Enthusiast'
+    'Full-Stack Developer',
+    'AI/ML Engineer',
+    'JavaScript Specialist'
   ];
 
   const handleTyping = () => {
@@ -250,11 +248,10 @@ const Hero = () => {
                 {/* Content */}
                 <div className="relative z-10">
                   <p className="text-gray-700 mb-4 leading-relaxed text-lg font-medium">
-                    I'm a passionate <span className="text-green-600 font-semibold">Machine Learning Engineer</span> and 
-                    <span className="text-green-600 font-semibold"> Full-Stack Developer</span> with expertise in building intelligent systems and scalable web applications.
+                    I'm a <span className="text-green-600 font-semibold">Full-Stack Web Developer</span> with a strong foundation in <span className="text-green-600 font-semibold">AI/ML</span>, specializing in building modern, responsive, and intelligent web applications.
                   </p>
                   <p className="text-gray-600 leading-relaxed text-lg">
-                    My journey in tech has led me to specialize in AI/ML solutions that solve real-world problems through innovative thinking and clean, efficient code.
+                    My passion lies in creating seamless user experiences with clean, efficient code, while leveraging AI/ML to add intelligent features that solve real-world problems.
                   </p>
                 </div>
               </motion.div>
