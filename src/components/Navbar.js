@@ -10,6 +10,14 @@ const Navbar = () => {
   const navigate = useNavigate();
   const scrollTimeout = useRef(null);
   const isHomePage = location.pathname === '/';
+  const mobileMenuRef = useRef(null);
+
+  const navItems = [
+    { id: 'home', label: 'Home' },
+    { id: 'about', label: 'AboutMe' },
+    { id: 'skills', label: 'Skills' },
+    { id: 'experience', label: 'Experience' }
+  ];
 
   // Handle smooth scroll to section
   const scrollToSection = (e, sectionId) => {
@@ -37,13 +45,6 @@ const Navbar = () => {
       window.history.pushState(null, null, `#${sectionId}`);
     }
   };
-
-  const navItems = [
-    { id: 'home', label: 'Home' },
-    { id: 'about', label: 'AboutMe' },
-    { id: 'skills', label: 'Skills' },
-    { id: 'experience', label: 'Experience' },
-  ];
 
   // Update active section based on URL hash or scroll position
   useEffect(() => {
@@ -84,7 +85,7 @@ const Navbar = () => {
       }
       
       scrollTimeout.current = requestAnimationFrame(() => {
-        const sections = ['home', 'about', 'skills', 'experience'];
+        const sections = navItems.map(item => item.id);
         const scrollPosition = window.scrollY + 100; // Add offset to highlight section a bit earlier
         
         for (const section of sections) {
@@ -127,10 +128,41 @@ const Navbar = () => {
     };
   }, [isHomePage, navItems]); // Re-run when isHomePage or navItems changes
 
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (mobileMenuRef.current && !mobileMenuRef.current.contains(event.target)) {
+        setMobileMenuOpen(false);
+      }
+    };
+    
+    if (mobileMenuOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+    
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [mobileMenuOpen]);
+
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+    
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, [mobileMenuOpen]);
+
   return (
-    <header className={`fixed top-6 left-1/2 -translate-x-1/2 z-[1000] transition-all duration-300 w-[92%] max-w-5xl mx-auto ${
-      scrolled ? 'py-4' : 'py-3'
-    }`}>
+    <header 
+      className={`fixed top-6 left-1/2 -translate-x-1/2 z-[1000] transition-all duration-300 w-[92%] max-w-5xl mx-auto ${
+        scrolled ? 'py-4' : 'py-3'
+      }`}
+      ref={mobileMenuRef}
+    >
       <div className={`glass-card container mx-auto px-8 py-3 rounded-2xl ${
         scrolled 
           ? 'bg-skin-100/90 border-2 border-green-400/30 shadow-xl' 
@@ -177,77 +209,73 @@ const Navbar = () => {
           </nav>
           
           {/* Mobile menu button */}
-          <div className="md:hidden z-50">
-            <button 
-              className="p-2 text-gray-600 hover:text-gray-900 focus:outline-none hover:bg-white/50 rounded-lg transition-colors duration-200"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              aria-label="Toggle menu"
-              aria-expanded={mobileMenuOpen}
-            >
-              {mobileMenuOpen ? (
-                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              ) : (
-                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-              )}
-            </button>
-          </div>
-
-          {/* Mobile Menu Overlay */}
-          <div 
-            className={`fixed inset-0 bg-black/50 z-40 transition-opacity duration-300 md:hidden ${
-              mobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
-            }`}
-            onClick={() => setMobileMenuOpen(false)}
+          <motion.div
+            initial={false}
+            animate={mobileMenuOpen ? 'open' : 'closed'}
+            className="md:hidden"
           >
-            <motion.div 
-              className="absolute top-0 right-0 h-full w-3/4 bg-white shadow-lg overflow-y-auto"
-              initial={{ x: '100%' }}
-              animate={{ x: mobileMenuOpen ? 0 : '100%' }}
-              transition={{ type: 'spring', bounce: 0.15, duration: 0.4 }}
-              onClick={(e) => e.stopPropagation()}
+            <button 
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="p-2 rounded-lg focus:outline-none"
+              aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
             >
-              <div className="p-6">
-                <div className="flex justify-between items-center mb-8">
-                  <h2 className="text-2xl font-bold text-gray-900">Menu</h2>
-                  <button 
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="p-2 text-gray-500 hover:text-gray-700"
-                    aria-label="Close menu"
+              <svg width="24" height="24" viewBox="0 0 24 24">
+                <motion.path
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  variants={{
+                    closed: { d: "M3 12H21" },
+                    open: { d: "M3 6H21" }
+                  }}
+                />
+                <motion.path
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  variants={{
+                    closed: { d: "M3 6H21" },
+                    open: { d: "M3 18H21" }
+                  }}
+                />
+              </svg>
+            </button>
+
+            <motion.div
+              variants={{
+                open: { 
+                  opacity: 1,
+                  y: 0,
+                  display: 'block'
+                },
+                closed: {
+                  opacity: 0,
+                  y: -20,
+                  transitionEnd: {
+                    display: 'none'
+                  }
+                }
+              }}
+              transition={{ duration: 0.2 }}
+              className="absolute top-full left-0 right-0 bg-white shadow-lg mt-2 rounded-lg overflow-hidden"
+            >
+              <nav className="py-2">
+                {navItems.map((item) => (
+                  <Link
+                    key={`mobile-${item.id}`}
+                    to={isHomePage ? `#${item.id}` : { pathname: '/', hash: `#${item.id}` }}
+                    onClick={(e) => {
+                      if (isHomePage) scrollToSection(e, item.id);
+                      setMobileMenuOpen(false);
+                    }}
+                    className="block px-4 py-3 text-gray-800 hover:bg-gray-50 transition-colors"
                   >
-                    <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                  </button>
-                </div>
-                <nav className="flex flex-col space-y-4">
-                  {navItems.map((item) => (
-                    <Link
-                      key={`mobile-${item.id}`}
-                      to={isHomePage ? `#${item.id}` : { pathname: '/', hash: `#${item.id}` }}
-                      onClick={(e) => {
-                        if (isHomePage) {
-                          scrollToSection(e, item.id);
-                        }
-                        setActiveSection(item.id);
-                        setMobileMenuOpen(false);
-                      }}
-                      className={`px-4 py-3 text-lg font-medium rounded-lg transition-colors ${
-                        activeSection === item.id 
-                          ? 'text-green-700 font-semibold bg-green-100/50' 
-                          : 'text-gray-700 hover:text-green-700 hover:bg-green-50/60'
-                      }`}
-                    >
-                      {item.label}
-                    </Link>
-                  ))}
-                </nav>
-              </div>
+                    {item.label}
+                  </Link>
+                ))}
+              </nav>
             </motion.div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </header>
