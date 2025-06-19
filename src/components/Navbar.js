@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 
@@ -12,12 +12,12 @@ const Navbar = () => {
   const isHomePage = location.pathname === '/';
   const mobileMenuRef = useRef(null);
 
-  const navItems = [
+  const navItems = useMemo(() => [
     { id: 'home', label: 'Home' },
     { id: 'about', label: 'AboutMe' },
     { id: 'skills', label: 'Skills' },
     { id: 'experience', label: 'Experience' }
-  ];
+  ], []);
 
   // Handle smooth scroll to section
   const scrollToSection = (e, sectionId) => {
