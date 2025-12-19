@@ -12,17 +12,17 @@ const TrekCaseStudy = () => {
 
   // Impact stats
   const stats = [
-    { 
+    {
       value: 'Immersive',
       label: '3D Experience',
       description: 'Explore cities in stunning 3D detail'
     },
-    { 
+    {
       value: 'Educational',
       label: 'Content',
       description: 'Learn about culture and history'
     },
-    { 
+    {
       value: 'Accessible',
       label: 'Design',
       description: 'Built for all users'
@@ -37,17 +37,17 @@ const TrekCaseStudy = () => {
       points: [
         'First-person navigation controls',
         'Interactive points of interest',
-        'Day/night cycle for realistic lighting'
+        'VRM Avatar integration'
       ]
     },
     {
-      title: 'Cultural Insights',
-      description: 'Discover rich cultural and historical information at each location.',
-      placeholder: 'Cultural Insights',
+      title: 'Real-time Motion Capture',
+      description: 'Control your avatar using your webcam with face and pose tracking.',
+      placeholder: 'Motion Capture',
       points: [
-        'Interactive information panels',
-        'Historical context and facts',
-        'Local stories and traditions'
+        'Face & Hand tracking via MediaPipe',
+        'Real-time expression mapping',
+        'Interactive avatar control'
       ]
     },
     {
@@ -63,23 +63,23 @@ const TrekCaseStudy = () => {
   ];
 
   const designProcess = [
-    { 
+    {
       title: 'Research',
       description: 'Analyzed travel and education app markets to identify opportunities.'
     },
-    { 
+    {
       title: 'Wireframing',
       description: 'Created low-fidelity prototypes for key user flows.'
     },
-    { 
+    {
       title: 'UI/UX Design',
       description: 'Developed high-fidelity designs with a focus on immersion and accessibility.'
     },
-    { 
+    {
       title: 'Development',
-      description: 'Built using Unity for 3D rendering and WebGL for web deployment.'
+      description: 'Built using React Three Fiber, Three.js, and VRM for web-based 3D rendering.'
     },
-    { 
+    {
       title: 'Testing',
       description: 'Conducted user testing to refine the experience.'
     }
@@ -93,7 +93,7 @@ const TrekCaseStudy = () => {
     <div className="min-h-screen bg-gray-900 text-gray-100 relative overflow-x-hidden">
       <Fireflies />
       <Navbar />
-      
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-16">
         {/* Back Button */}
         <motion.button
@@ -137,16 +137,16 @@ const TrekCaseStudy = () => {
             >
               <h2 className="text-3xl font-bold mb-8 text-center text-green-400">Project Overview</h2>
               <p className="text-lg text-gray-300 mb-12 leading-relaxed">
-                3D Trekking Adventure is a web-based Unity game that transports users to stunning locations around the world. 
-                Explore detailed 3D environments, learn about local culture and history, and discover hidden gems—all from the comfort of your browser.
+                3D Trekking Adventure is a web-based React Three Fiber experience that transports users to stunning locations around the world.
+                Explore detailed 3D environments, control your VRM avatar with your webcam, and learn about local culture.
               </p>
-              
+
               {/* Project Demo */}
               <div className="mb-12">
                 <h3 className="text-2xl font-semibold mb-4 text-green-400">Game Demo</h3>
                 <div className="bg-gray-800/50 rounded-xl overflow-hidden border border-gray-700/50">
                   <div className="relative pt-[56.25%] w-full"> {/* 16:9 Aspect Ratio */}
-                    <video 
+                    <video
                       className="absolute top-0 left-0 w-full h-full object-cover"
                       controls
                       controlsList="nodownload"
@@ -154,7 +154,7 @@ const TrekCaseStudy = () => {
                       aria-label="3D Trekking Adventure Demo Video"
                     >
                       <source src="/trek.mp4" type="video/mp4" />
-                      Your browser does not support the video tag. Here's a 
+                      Your browser does not support the video tag. Here's a
                       <a href="/trek-demo.mp4" download>link to download the video</a> instead.
                     </video>
                   </div>
@@ -186,7 +186,7 @@ const TrekCaseStudy = () => {
               className="bg-gray-800/50 p-8 rounded-2xl border border-gray-700/50"
             >
               <h2 className="text-3xl font-bold mb-8 text-center text-green-400">User Persona</h2>
-              
+
               <div className="grid md:grid-cols-3 gap-8">
                 <div className="md:col-span-2">
                   <div className="bg-gray-700/30 p-6 rounded-xl mb-6">
@@ -198,7 +198,7 @@ const TrekCaseStudy = () => {
                       <span className="font-semibold text-green-300">Bio:</span> A modern professional with a passion for travel and technology. They seek immersive digital experiences that allow them to explore the world from anywhere. With a busy schedule, they value high-quality virtual experiences that provide both education and entertainment, helping them discover new cultures and destinations.
                     </p>
                   </div>
-                  
+
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
                     <div className="bg-gray-700/30 p-4 rounded-lg">
                       <h4 className="font-semibold text-green-300 mb-2">Goals</h4>
@@ -217,7 +217,7 @@ const TrekCaseStudy = () => {
                         </li>
                       </ul>
                     </div>
-                    
+
                     <div className="bg-gray-700/30 p-4 rounded-lg">
                       <h4 className="font-semibold text-green-300 mb-2">Frustrations</h4>
                       <ul className="space-y-2">
@@ -237,7 +237,7 @@ const TrekCaseStudy = () => {
                     </div>
                   </div>
                 </div>
-                
+
                 <div className="bg-gray-700/30 p-6 rounded-xl">
                   <h4 className="font-semibold text-green-300 mb-4">Key Behaviors</h4>
                   <ul className="space-y-4">
@@ -281,10 +281,10 @@ const TrekCaseStudy = () => {
           </div>
         </section>
 
-{/* Key Features */}
+        {/* Key Features */}
         <section className="py-16 bg-gray-900/50 backdrop-blur-sm">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.h2 
+            <motion.h2
               className="text-3xl font-bold mb-16 text-center text-green-400"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -293,9 +293,9 @@ const TrekCaseStudy = () => {
             >
               Key Features
             </motion.h2>
-            
+
             {features.map((feature, index) => (
-              <motion.div 
+              <motion.div
                 key={index}
                 className={`grid md:grid-cols-2 gap-8 items-center mb-16 ${index % 2 === 0 ? '' : 'md:flex-row-reverse'}`}
                 initial={{ opacity: 0, y: 20 }}
@@ -319,7 +319,7 @@ const TrekCaseStudy = () => {
                 </div>
                 <div className={`bg-gray-800/50 rounded-xl overflow-hidden border border-gray-700/50 ${index % 2 === 0 ? '' : 'md:order-1'}`}>
                   {index < 2 ? (
-                    <img 
+                    <img
                       src={`/trek${index + 1}.png`}
                       alt={feature.placeholder}
                       className="w-full h-full object-cover"
@@ -364,7 +364,7 @@ const TrekCaseStudy = () => {
               transition={{ duration: 0.6 }}
             >
               <h2 className="text-3xl font-bold mb-12 text-center text-green-400">Design System</h2>
-              
+
               {/* Color Palette */}
               <div className="mb-12">
                 <h3 className="text-xl font-semibold mb-6 text-green-400">Color Palette</h3>
@@ -410,7 +410,7 @@ const TrekCaseStudy = () => {
         {/* Accessibility Features */}
         <section className="py-16 bg-gray-800/50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.h2 
+            <motion.h2
               className="text-3xl font-bold mb-12 text-center text-green-400"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -419,7 +419,7 @@ const TrekCaseStudy = () => {
             >
               Accessibility Features
             </motion.h2>
-            
+
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
               {[
                 { title: 'Text-to-Speech', description: 'All content is accessible via screen readers and text-to-speech functionality.' },
@@ -429,7 +429,7 @@ const TrekCaseStudy = () => {
                 { title: 'Subtitles/Transcripts', description: 'All audio content includes optional subtitles and transcripts.' },
                 { title: 'Motion Reduction', description: 'Option to reduce or disable animations for users with motion sensitivity.' }
               ].map((item, index) => (
-                <motion.div 
+                <motion.div
                   key={index}
                   className="bg-gray-700/30 p-6 rounded-xl border border-gray-600/50 hover:border-green-500/30 transition-colors"
                   initial={{ opacity: 0, y: 20 }}
@@ -456,9 +456,9 @@ const TrekCaseStudy = () => {
               transition={{ duration: 0.6 }}
             >
               <h2 className="text-3xl font-bold mb-12 text-center text-green-400">Technical Considerations</h2>
-              
+
               <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-                <motion.div 
+                <motion.div
                   className="bg-gray-800/50 p-8 rounded-xl border border-gray-700/50"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -481,8 +481,8 @@ const TrekCaseStudy = () => {
                     </li>
                   </ul>
                 </motion.div>
-                
-                <motion.div 
+
+                <motion.div
                   className="bg-gray-800/50 p-8 rounded-xl border border-gray-700/50"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -513,7 +513,7 @@ const TrekCaseStudy = () => {
         {/* Future Enhancements */}
         <section className="py-16 bg-gray-800/30">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.div 
+            <motion.div
               className="max-w-4xl mx-auto bg-gray-800/50 p-8 rounded-xl border border-gray-700"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -543,7 +543,7 @@ const TrekCaseStudy = () => {
         {/* Explore the Code */}
         <section className="py-20 bg-gradient-to-b from-gray-900 to-gray-900/80">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.div 
+            <motion.div
               className="text-center"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -555,7 +555,7 @@ const TrekCaseStudy = () => {
                 Interested in the technical implementation? Check out the source code on GitHub to see how this project was built.
               </p>
               <motion.a
-                href="https://github.com/ZenMasterrr/3d-Game"
+                href="https://github.com/ZenMasterrr/Virtual-Frontier"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center px-8 py-4 border border-transparent text-base font-medium rounded-full text-white bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 transform"
@@ -569,7 +569,7 @@ const TrekCaseStudy = () => {
           </div>
         </section>
       </div>
-      
+
       <Footer />
     </div>
   );

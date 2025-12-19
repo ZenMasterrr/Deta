@@ -4,31 +4,31 @@ import { motion } from 'framer-motion';
 const Experience = () => {
   const projects = [
     {
-      title: "Brainz",
-      description: "An innovative AI-powered web application that creates a digital twin mirroring your personality, communication style, and behavioral patterns through advanced natural language processing and machine learning.",
+      title: "Dteams",
+      description: "A complete Agent Foundry platform that empowers users to create, train, and deploy 'Digital Employees' with distinct personalities, cloned voices, and autonomous capabilities.",
       features: [
-        "Creates authentic digital twins that replicate speech, writing, and interaction patterns",
-        "Advanced NLP and ML to capture unique mannerisms, tone, and decision-making",
-        "Three-tier architecture for secure, scalable, and responsive performance",
-        "Web-based solution accessible through any modern browser"
+        "Browser-based Audio Dataset Creator for custom voice training",
+        "Neural Voice Cloning (XTTS v2) with <500ms latency streaming",
+        "Autonomous Action Engine ('Zaps') for executing real-world tasks",
+        "Full-stack architecture with Next.js, FastAPI, and AWS SageMaker"
       ],
-      skills: ["React", "TypeScript", "Tailwind CSS", "WebSockets", "AI/ML"],
-      gif: "/gifs/brainz.gif",
+      skills: ["Next.js", "FastAPI", "AWS SageMaker", "ChromaDB", "WebSockets"],
+      video: "/twin.mp4",
       liveLink: "#",
-      codeLink: "https://github.com/ZenMasterrr/Brainz",
-      caseStudyLink: "/brainz"
+      codeLink: "https://github.com/ZenMasterrr/Dteams-X-Ai",
+      caseStudyLink: "/Dteams"
     },
     {
       title: "Marketing Lab",
-      description: "A cutting-edge marketing campaign simulator that combines data visualization with an aesthetic interface to help marketers plan, simulate, and analyze campaigns through an intuitive interface.",
+      description: "A professional-grade simulation platform integrating real-time Open Source Intelligence (OSINT) with probabilistic ROI modeling for advanced marketing strategy testing.",
       features: [
-        "Multi-step campaign builder with dynamic forms that adapt to user inputs",
-        "Real-time 3D data visualization using Three.js for engaging data representation",
-        "Interactive dashboard with actionable insights and analytics",
-        "Responsive design with futuristic UI for complex marketing data visualization"
+        "AI Campaign Simulation using Monte Carlo & probabilistic modeling",
+        "Automated OSINT engine for real-time competitor scouting",
+        "Interactive Data Visualization with cyberpunk aesthetics",
+        "Persistent command center for multi-campaign management"
       ],
-      skills: ["React", "Three.js", "D3.js", "Node.js", "MongoDB", "WebSockets"],
-      gif: "/gifs/market.gif",
+      skills: ["React", "FastAPI", "Docker", "Python", "OSINT"],
+      video: "/marketing.mp4",
       liveLink: "#",
       codeLink: "https://github.com/ZenMasterrr/Marketing-Lab",
       caseStudyLink: "/marketing-lab",
@@ -36,17 +36,17 @@ const Experience = () => {
     },
     {
       title: "Trek",
-      description: "An interactive 3D trekking web application that combines modern web technologies with Unity to create an immersive virtual exploration experience.",
+      description: "An immersive web-based 3D experience that transports users to global destinations, featuring real-time avatar control and accessible design.",
       features: [
-        "Immersive 3D environments powered by Unity",
-        "Responsive interface with smooth animations",
-        "Card-based system for exploring global destinations",
-        "Rich visual content and cultural insights"
+        "Detailed 3D environments with first-person navigation",
+        "Real-time webcam-based motion capture for VRM avatars",
+        "Accessible design including text-to-speech and colorblind modes",
+        "Interactive cultural insights and educational content"
       ],
-      skills: ["Unity", "HTML5", "CSS3", "JavaScript", "3D Modeling"],
-      gif: "/gifs/trek.gif",
+      skills: ["React Three Fiber", "Three.js", "MediaPipe", "VRM", "Accessibility"],
+      video: "/trek.mp4",
       liveLink: "#",
-      codeLink: "https://github.com/ZenMasterrr/3d-Game",
+      codeLink: "https://github.com/ZenMasterrr/Virtual-Frontier",
       caseStudyLink: "/trek",
       buttonColor: "from-amber-500 to-orange-600"
     }
@@ -61,7 +61,7 @@ const Experience = () => {
       </div>
 
       <div className="w-full max-w-6xl mx-auto px-4 relative z-10">
-        <motion.div 
+        <motion.div
           className="text-left mb-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -76,7 +76,7 @@ const Experience = () => {
             Here are some of my recent projects that showcase my skills and expertise.
           </p>
         </motion.div>
-        
+
         <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
           {projects.map((project, index) => (
             <motion.div
@@ -88,12 +88,15 @@ const Experience = () => {
               transition={{ duration: 0.5, delay: index * 0.15 }}
             >
               <div className="glass-card rounded-2xl overflow-hidden h-full flex flex-col border border-amber-100/20 bg-amber-50/5 hover:border-amber-200/40 transition-all duration-300">
-                {/* GIF Preview */}
+                {/* Video Preview */}
                 <div className="relative overflow-hidden h-48 bg-amber-50/10">
-                  <img 
-                    src={project.gif} 
-                    alt={`${project.title} demo`} 
+                  <video
+                    src={project.video}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
                     <div className="p-6 flex-grow">
@@ -103,11 +106,11 @@ const Experience = () => {
                     </div>
                   </div>
                 </div>
-                
+
                 <div className="p-6 flex-1 flex flex-col text-amber-50">
                   <div className="flex-1">
                     <p className="text-amber-100 mb-4">{project.description}</p>
-                    
+
                     <ul className="space-y-2 mb-6">
                       {project.features.map((feature, i) => (
                         <li key={i} className="flex items-start">
@@ -117,7 +120,7 @@ const Experience = () => {
                       ))}
                     </ul>
                   </div>
-                  
+
                   <div className="flex space-x-4 pt-2 border-t border-gray-800">
                     {project.caseStudyLink ? (
                       <motion.a
@@ -159,7 +162,7 @@ const Experience = () => {
           ))}
         </div>
       </div>
-      
+
       {/* Back to top link */}
       <div className="fixed right-10 top-1/2 transform -translate-y-1/2 rotate-90 origin-right text-sm text-gray-400 hover:text-white transition-colors z-50">
         <a href="#" className="flex items-center">

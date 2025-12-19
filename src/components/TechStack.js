@@ -2,39 +2,41 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 
 // Icons for technologies
-import { 
-  FaReact, 
-  FaNodeJs, 
-  FaJs, 
-  FaPython, 
-  FaDatabase, 
-  FaGitAlt, 
-  FaServer, 
-  FaBrain, 
-  FaRobot 
+import {
+  FaReact,
+  FaNodeJs,
+  FaJs,
+  FaPython,
+  FaDatabase,
+  FaGitAlt,
+  FaServer,
+  FaBrain,
+  FaRobot
 } from 'react-icons/fa';
 
 // Import only the icons we actually use
-import { 
-  SiTypescript, 
-  SiNextdotjs, 
-  SiExpress, 
-  SiMongodb, 
-  SiPostgresql, 
-  SiGraphql, 
-  SiTailwindcss, 
-  SiRedux, 
-  SiDocker, 
-  SiGithub, 
-  SiTensorflow, 
-  SiPytorch, 
-  SiKeras, 
-  SiScikitlearn, 
-  SiGooglecloud, 
-  SiHeroku,
-  SiNetlify
+import {
+  SiTypescript,
+  SiNextdotjs,
+  SiExpress,
+  SiMongodb,
+  SiPostgresql,
+  SiGraphql,
+  SiTailwindcss,
+  SiRedux,
+  SiDocker,
+  SiGithub,
+  SiPytorch,
+  SiScikitlearn,
+  SiGooglecloud,
+  SiNetlify,
+  SiRedis,
+  SiKubernetes,
+  SiAmazonwebservices,
+  SiVercel,
+  SiHuggingface,
+  SiFastapi
 } from 'react-icons/si';
-
 const TechStack = () => {
   const [activeTab, setActiveTab] = useState('fullstack');
 
@@ -43,7 +45,7 @@ const TechStack = () => {
       title: 'Full-Stack Development',
       icon: <FaServer className="w-6 h-6" />,
       skills: [
-        { 
+        {
           name: 'Frontend',
           items: [
             { name: 'React', icon: <FaReact className="w-6 h-6 text-[#61DAFB]" /> },
@@ -54,26 +56,25 @@ const TechStack = () => {
             { name: 'Redux', icon: <SiRedux className="w-6 h-6 text-[#764ABC]" /> }
           ]
         },
-        { 
+        {
           name: 'Backend',
           items: [
             { name: 'Node.js', icon: <FaNodeJs className="w-6 h-6 text-[#68A063]" /> },
             { name: 'Express', icon: <SiExpress className="w-6 h-6" /> },
             { name: 'MongoDB', icon: <SiMongodb className="w-6 h-6 text-[#47A248]" /> },
             { name: 'PostgreSQL', icon: <SiPostgresql className="w-6 h-6 text-[#336791]" /> },
+            { name: 'Redis', icon: <SiRedis className="w-6 h-6 text-[#DC382D]" /> },
             { name: 'GraphQL', icon: <SiGraphql className="w-6 h-6 text-[#E10098]" /> }
           ]
         },
-        { 
+        {
           name: 'DevOps & Tools',
           items: [
             { name: 'Docker', icon: <SiDocker className="w-6 h-6 text-[#2496ED]" /> },
-            { name: 'Git', icon: <FaGitAlt className="w-6 h-6 text-[#F05032]" /> },
-            { name: 'GitHub', icon: <SiGithub className="w-6 h-6" /> },
-            { name: 'Google Cloud', icon: <SiGooglecloud className="w-6 h-6 text-[#4285F4]" /> },
-            { name: 'Heroku', icon: <SiHeroku className="w-6 h-6 text-[#430098]" /> },
-            { name: 'Netlify', icon: <SiNetlify className="w-6 h-6 text-[#00C7B7]" /> },
-            { name: 'CI/CD', icon: <SiGithub className="w-6 h-6" /> }
+            { name: 'Kubernetes', icon: <SiKubernetes className="w-6 h-6 text-[#326CE5]" /> },
+            { name: 'AWS', icon: <SiAmazonwebservices className="w-6 h-6 text-[#FF9900]" /> },
+            { name: 'Vercel', icon: <SiVercel className="w-6 h-6 text-[#000000]" /> },
+            { name: 'Git', icon: <FaGitAlt className="w-6 h-6 text-[#F05032]" /> }
           ]
         }
       ]
@@ -82,30 +83,28 @@ const TechStack = () => {
       title: 'AI/ML Engineering',
       icon: <FaBrain className="w-6 h-6" />,
       skills: [
-        { 
-          name: 'Frameworks',
+        {
+          name: 'Deep Learning Core',
           items: [
             { name: 'PyTorch', icon: <SiPytorch className="w-6 h-6 text-[#EE4C2C]" /> },
-            { name: 'Keras', icon: <SiKeras className="w-6 h-6 text-[#D00000]" /> },
-            { name: 'scikit-learn', icon: <SiScikitlearn className="w-6 h-6 text-[#F7931E]" /> }
+            { name: 'Scikit-learn', icon: <SiScikitlearn className="w-6 h-6 text-[#F7931E]" /> },
+            { name: 'Hugging Face', icon: <SiHuggingface className="w-6 h-6 text-[#FFD21E]" /> }
           ]
         },
-        { 
-          name: 'Technologies',
+        {
+          name: 'GenAI & LLMs',
           items: [
-            { name: 'Python', icon: <FaPython className="w-6 h-6 text-[#3776AB]" /> },
-            { name: 'Computer Vision', icon: <FaRobot className="w-6 h-6 text-[#4CAF50]" /> },
-            { name: 'NLP', icon: <SiTensorflow className="w-6 h-6 text-[#4CAF50]" /> },
-            { name: 'Deep Learning', icon: <FaBrain className="w-6 h-6 text-[#9C27B0]" /> }
+            { name: 'LangChain', icon: <FaBrain className="w-6 h-6 text-[#333333]" /> },
+            { name: 'Pinecone', icon: <FaDatabase className="w-6 h-6 text-[#2196F3]" /> },
+            { name: 'LlamaIndex', icon: <FaRobot className="w-6 h-6 text-[#000000]" /> }
           ]
         },
-        { 
-          name: 'MLOps',
+        {
+          name: 'MLOps & Production',
           items: [
-            { name: 'Model Deployment', icon: <SiDocker className="w-6 h-6 text-[#2496ED]" /> },
-            { name: 'Data Pipelines', icon: <FaDatabase className="w-6 h-6 text-[#2196F3]" /> },
-            { name: 'MLflow', icon: <SiTensorflow className="w-6 h-6 text-[#0194E2]" /> },
-            { name: 'Model Serving', icon: <FaServer className="w-6 h-6 text-[#607D8B]" /> }
+            { name: 'FastAPI', icon: <SiFastapi className="w-6 h-6 text-[#009688]" /> },
+            { name: 'Docker', icon: <SiDocker className="w-6 h-6 text-[#2496ED]" /> },
+            { name: 'MLflow', icon: <SiPytorch className="w-6 h-6 text-[#0194E2]" /> }
           ]
         }
       ]
@@ -146,11 +145,10 @@ const TechStack = () => {
               <button
                 key={key}
                 onClick={() => setActiveTab(key)}
-                className={`px-6 py-3 rounded-lg flex items-center space-x-2 transition-all duration-300 ${
-                  activeTab === key 
-                    ? 'bg-gray-800 text-white shadow-lg' 
-                    : 'text-gray-300 hover:text-white hover:bg-gray-700/50'
-                }`}
+                className={`px-6 py-3 rounded-lg flex items-center space-x-2 transition-all duration-300 ${activeTab === key
+                  ? 'bg-gray-800 text-white shadow-lg'
+                  : 'text-gray-300 hover:text-white hover:bg-gray-700/50'
+                  }`}
               >
                 {icon}
                 <span>{title}</span>
@@ -160,7 +158,7 @@ const TechStack = () => {
         </div>
 
         {/* Skills Grid */}
-        <motion.div 
+        <motion.div
           key={activeTab}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -169,8 +167,8 @@ const TechStack = () => {
         >
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full px-4">
             {currentCategory.skills.map((category, index) => (
-              <div 
-                key={index} 
+              <div
+                key={index}
                 className="glass-card p-6 rounded-2xl bg-gray-800/50 backdrop-blur-lg border border-gray-700/50 hover:border-green-500/30 transition-all duration-300 h-full flex flex-col"
               >
                 <h3 className="text-xl font-semibold text-green-300 mb-4">{category.name}</h3>
@@ -191,7 +189,7 @@ const TechStack = () => {
           </div>
         </motion.div>
       </div>
-      
+
       {/* Back to top link */}
       <div className="fixed right-10 top-1/2 transform -translate-y-1/2 rotate-90 origin-right text-sm text-gray-400 hover:text-white transition-colors z-50">
         <a href="#" className="flex items-center">

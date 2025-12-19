@@ -29,20 +29,20 @@ const AppLayout = () => {
         <section id="home" className="relative">
           <Hero />
         </section>
-        
+
         <section id="about" className="relative">
           <About />
         </section>
-        
+
         <section id="skills" className="relative">
           <TechStack />
         </section>
-        
+
         <section id="experience" className="relative">
           <Experience />
         </section>
       </main>
-      
+
       <footer>
         <Footer />
       </footer>
@@ -57,7 +57,7 @@ function App() {
       <Routes>
         <Route path="/" element={<AppLayout />} />
         <Route path="/marketing-lab" element={<MarketingLabCaseStudy />} />
-        <Route path="/brainz" element={<BrainzCaseStudy />} />
+        <Route path="/Dteams" element={<BrainzCaseStudy />} />
         <Route path="/trek" element={<TrekCaseStudy />} />
         <Route path="*" element={<div>404 Not Found</div>} />
       </Routes>

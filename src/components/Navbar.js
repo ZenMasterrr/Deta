@@ -16,31 +16,31 @@ const Navbar = () => {
     { id: 'home', label: 'Home' },
     { id: 'about', label: 'AboutMe' },
     { id: 'skills', label: 'Skills' },
-    { id: 'experience', label: 'Experience' }
+    { id: 'experience', label: 'Work' }
   ], []);
 
   // Handle smooth scroll to section
   const scrollToSection = (e, sectionId) => {
     e.preventDefault();
-    
+
     // If not on home page, navigate to home with hash
     if (!isHomePage) {
       navigate(`/#${sectionId}`, { replace: true });
       return;
     }
-    
+
     // If on home page, scroll to section
     const element = document.getElementById(sectionId);
     if (element) {
       const headerOffset = 96; // Height of navbar + extra spacing
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-      
+
       window.scrollTo({
         top: offsetPosition,
         behavior: 'smooth'
       });
-      
+
       // Update URL hash without scrolling
       window.history.pushState(null, null, `#${sectionId}`);
     }
@@ -53,7 +53,7 @@ const Navbar = () => {
       const hash = window.location.hash.replace('#', '');
       if (hash && navItems.some(item => item.id === hash)) {
         setActiveSection(hash);
-        
+
         // If we're on the home page, scroll to the section
         if (isHomePage) {
           const element = document.getElementById(hash);
@@ -61,7 +61,7 @@ const Navbar = () => {
             const headerOffset = 96;
             const elementPosition = element.getBoundingClientRect().top;
             const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-            
+
             window.scrollTo({
               top: offsetPosition,
               behavior: 'smooth'
@@ -75,25 +75,25 @@ const Navbar = () => {
     const handleScroll = () => {
       // Set scrolled state for navbar background
       setScrolled(window.scrollY > 50);
-      
+
       // Only update active section based on scroll if we're on the home page
       if (!isHomePage) return;
-      
+
       // Debounce the scroll handler
       if (scrollTimeout.current) {
         cancelAnimationFrame(scrollTimeout.current);
       }
-      
+
       scrollTimeout.current = requestAnimationFrame(() => {
         const sections = navItems.map(item => item.id);
         const scrollPosition = window.scrollY + 100; // Add offset to highlight section a bit earlier
-        
+
         for (const section of sections) {
           const element = document.getElementById(section);
           if (element) {
             const offsetTop = element.offsetTop;
             const offsetHeight = element.offsetHeight;
-            
+
             if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
               setActiveSection(section);
               // Update URL hash without scrolling
@@ -104,11 +104,11 @@ const Navbar = () => {
         }
       });
     };
-    
+
     // Add event listeners
     window.addEventListener('scroll', handleScroll, { passive: true });
     window.addEventListener('hashchange', handleHashChange);
-    
+
     // Initial check
     if (isHomePage) {
       handleScroll();
@@ -117,7 +117,7 @@ const Navbar = () => {
     } else {
       setActiveSection('home');
     }
-    
+
     // Cleanup
     return () => {
       if (scrollTimeout.current) {
@@ -134,11 +134,11 @@ const Navbar = () => {
         setMobileMenuOpen(false);
       }
     };
-    
+
     if (mobileMenuOpen) {
       document.addEventListener('mousedown', handleClickOutside);
     }
-    
+
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
@@ -150,34 +150,32 @@ const Navbar = () => {
     } else {
       document.body.style.overflow = 'auto';
     }
-    
+
     return () => {
       document.body.style.overflow = 'auto';
     };
   }, [mobileMenuOpen]);
 
   return (
-    <header 
-      className={`fixed top-6 left-1/2 -translate-x-1/2 z-[1000] transition-all duration-300 w-[92%] max-w-5xl mx-auto ${
-        scrolled ? 'py-4' : 'py-3'
-      }`}
+    <header
+      className={`fixed top-6 left-1/2 -translate-x-1/2 z-[1000] transition-all duration-300 w-[92%] max-w-5xl mx-auto ${scrolled ? 'py-4' : 'py-3'
+        }`}
       ref={mobileMenuRef}
     >
-      <div className={`glass-card container mx-auto px-8 py-3 rounded-2xl ${
-        scrolled 
-          ? 'bg-skin-100/90 border-2 border-green-400/30 shadow-xl' 
+      <div className={`glass-card container mx-auto px-8 py-3 rounded-2xl ${scrolled
+          ? 'bg-skin-100/90 border-2 border-green-400/30 shadow-xl'
           : 'bg-skin-50/80'
-      } transition-all duration-300`}>
+        } transition-all duration-300`}>
         <div className="flex justify-between items-center">
           {/* Logo/Profile Image - Links to home */}
           <Link to="/" className="flex items-center">
-            <img 
-              src="/a-stylized-digital-portrait-illustration_RVqugDIhRTagZXa37AbJkw_kHTnkbxiTTaR9h69r5AjNw.jpeg" 
+            <img
+              src="/a-stylized-digital-portrait-illustration_RVqugDIhRTagZXa37AbJkw_kHTnkbxiTTaR9h69r5AjNw.jpeg"
               alt="Profile"
               className="w-10 h-10 md:w-12 md:h-12 rounded-full object-cover border-2 border-green-500 shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-105"
             />
           </Link>
-          
+
           {/* Navigation links */}
           <nav className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
@@ -185,15 +183,14 @@ const Navbar = () => {
                 key={item.id}
                 to={isHomePage ? `#${item.id}` : { pathname: '/', hash: `#${item.id}` }}
                 onClick={(e) => scrollToSection(e, item.id)}
-                className={`relative px-4 py-2.5 text-base font-medium rounded-lg transition-all duration-300 ${
-                  activeSection === item.id 
-                    ? 'text-green-700 font-semibold bg-green-100/50' 
+                className={`relative px-4 py-2.5 text-base font-medium rounded-lg transition-all duration-300 ${activeSection === item.id
+                    ? 'text-green-700 font-semibold bg-green-100/50'
                     : 'text-black-700 hover:text-green-700 hover:bg-green-50/60'
-                }`}
+                  }`}
               >
                 {item.label}
                 {activeSection === item.id && (
-                  <motion.span 
+                  <motion.span
                     layoutId="nav-underline"
                     className="absolute left-0 bottom-0 w-full h-0.5 bg-gradient-to-r from-green-500 to-green-700 rounded-full"
                     initial={false}
@@ -207,14 +204,14 @@ const Navbar = () => {
               </Link>
             ))}
           </nav>
-          
+
           {/* Mobile menu button */}
           <motion.div
             initial={false}
             animate={mobileMenuOpen ? 'open' : 'closed'}
             className="md:hidden"
           >
-            <button 
+            <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-2 rounded-lg focus:outline-none"
               aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
@@ -243,7 +240,7 @@ const Navbar = () => {
 
             <motion.div
               variants={{
-                open: { 
+                open: {
                   opacity: 1,
                   y: 0,
                   display: 'block'
