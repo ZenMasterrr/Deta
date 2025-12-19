@@ -46,7 +46,9 @@
     "@tailwindcss/line-clamp": "^0.4.4",
     "@tailwindcss/typography": "^0.5.16",
     "autoprefixer": "^10.4.16",
-    "postcss": "^8.4.31"
+    "postcss": "^8.4.31",
+    "react-refresh": "^0.18.0",
+    "tailwindcss": "^4.1.18"
   },
   "resolutions": {
     "ajv": "6.12.6",
